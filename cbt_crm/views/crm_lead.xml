@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="view_crm_lead_form_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='lead']//div[@class='o_row o_row_readonly']" position="after">
+                    <field name="category_id" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" placeholder="e.g... Mr, Consultant"/>
+                    <field name="property_payment_term_id"/>
+                    <field name="industry_application"/>
+                </xpath>
+                <xpath expr="//notebook/page[@name='lead']//field[@name='website']" position="after">
+                    <field name="comment" placeholder="Internal notes..."/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
